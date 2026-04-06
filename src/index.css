@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-geist: "Geist Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+
+  --color-kinetia-900: #050505;
+  --color-kinetia-800: #0F0F11;
+  --color-kinetia-accent: #4F46E5;
+  --color-kinetia-glow: #818CF8;
+
+  --background-image-hero-glow: conic-gradient(from 180deg at 50% 50%, #4F46E533 0deg, #818CF833 180deg, #050505 360deg);
+
+  --animate-mesh-gradient: mesh 15s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes mesh {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(2%, 5%) scale(1.05); }
+    100% { transform: translate(-2%, -5%) scale(0.95); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+@layer base {
+  :root {
+    --background: #050505;
+    --foreground: #F8F8F8;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+  }
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hide-cursor {
+  cursor: none !important;
+}
+
+.hide-cursor * {
+  cursor: none !important;
+}
